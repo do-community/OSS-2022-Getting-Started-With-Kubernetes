@@ -1,5 +1,5 @@
 from flask import Flask, request
-import base64, os, hashlib
+import os
 from datetime import timedelta
 from text_password_protect import TextPasswordProtect
 import redis
@@ -16,7 +16,7 @@ r = redis.Redis(
     port=os.getenv("DB_PORT", 6379),
     password=os.getenv("DB_PASSWORD", None),
     # set to false in local dev
-    ssl=os.getenv("SSL", "True") == "True",
+    ssl=os.getenv("DB_SSL", "True") == "True",
 )
 
 
