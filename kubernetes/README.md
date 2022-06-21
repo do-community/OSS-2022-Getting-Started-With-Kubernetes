@@ -16,6 +16,31 @@
     1. Click Create Cluster. Provisioning the cluster takes several minutes.
     1. Download the cluster configuration file by clicking Actions, then Download Config from the cluster home page.
 
+1.  Configure `doctl` 
+    1. [Create an API token](https://cloud.digitalocean.com/account/api/)
+    1. Export your token as an environment variable called `DO_TOKEN`.
+    ```sh
+    export DO_TOKEN="<YOUR_DO_TOKEN>"
+    ```
+
+    **Note:** Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
+
+    1. [Use the API token to grant account access to doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/#step-3-use-the-api-token-to-grant-account-access-to-doctl)
+    ```sh
+    doctl auth init 
+    ```
+    1. [Validate that doctl is working](https://docs.digitalocean.com/reference/doctl/how-to/install/#step-4-validate-that-doctl-is-working)
+    ```sh
+    doctl account get
+    ```
+
+    You should see output like this: 
+
+    ```sh
+    Email                            Droplet Limit    Email Verified    UUID                                    Status
+    kschlesinger@digitalocean.com    25               true              4ba4b281-ie98-4888-a843-2365cf961232    active
+    ```
+
 1. Once the cluster is created, use `kubectl` to verify that you can connect to the cluster. 
     ```shell
     kubectl get nodes
