@@ -18,11 +18,13 @@ The goal of this [session](https://sched.co/11Nje) is for you to deploy a contai
 In this workshop, you will spin up a [DigitalOcean Managed Kubernetes Cluster](https://www.digitalocean.com/products/kubernetes). You will get a $100 credit for this workshop, and in order to [redeem the credit](https://docs.digitalocean.com/products/billing/promo-codes/), you will need a DigitalOcean Account. 
 
 **Note:**  
-If you have an existing DigitalOcean account that has already used a promo code, we will have to manually add the credits to your account. There are two ways to handle this at the session: 
+If you have an existing DigitalOcean account that has already used a promo code, we will have to manually add the credits to your account. There are three ways to handle this at the session: 
 
-1. Share the email address associated with your account and we will manually apply the code after the workshop
-    - send Kim Schlesinger a message in the [CNCF Slack](cloud-native.slack.com) and share the email address associated with your DigitalOcean account
 1. Create a new account with a different email address.
+1. Find a DigitalOcean employee at the in-person workshop who can manually apply the credit code for you.
+1. Share the email address associated with your account and we will manually apply the code after the workshop
+    - send Kim Schlesinger an email at `kschlesinger@digitalocean.com` and share the email address associated with your DigitalOcean account
+
 
 ### Prerequisites
 You will need to install these tools in order to complete the tutorial 

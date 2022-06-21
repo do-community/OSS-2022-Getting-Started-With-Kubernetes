@@ -9,6 +9,8 @@
 **Note**
 If the DigitalOcean paywall makes it difficult for you to complete this tutorial, we recommend you spin up a cluster using [Killercoda](https://killercoda.com/playgrounds/scenario/kubernetes). You will have to copy and paste the manifest files from this repo to Killercoda's IDE. 
 
+You will not be able to expose your application to the internet using Killercoda, but the rest of the tutorial is possible. 
+
 ### Instructions
 1. [Create a Kubernetes Cluster from the DigitalOcean Control Panel](https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/)
     1. From the Create menu in the [control panel](https://cloud.digitalocean.com/), click Kubernetes.
