@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ots-service
+spec:
+  selector:
+    app: ots
+  externalTrafficPolicy: Local
+  type: LoadBalancer
