@@ -6,6 +6,9 @@
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [httpie](https://httpie.io/docs/cli/installation)
 
+**Note**
+If the DigitalOcean paywall makes it difficult for you to complete this tutorial, we recommend you spin up a cluster using [Killercoda](https://killercoda.com/playgrounds/scenario/kubernetes). You will have to copy and paste the manifest files from this repo to Killercoda's IDE. 
+
 ### Instructions
 1. [Create a Kubernetes Cluster from the DigitalOcean Control Panel](https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/)
     1. From the Create menu in the [control panel](https://cloud.digitalocean.com/), click Kubernetes.
@@ -22,9 +25,7 @@
     ```sh
     export DO_TOKEN="<YOUR_DO_TOKEN>"
     ```
-
-        **Note:** Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
-
+    **Note:** Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
     1. [Use the API token to grant account access to doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/#step-3-use-the-api-token-to-grant-account-access-to-doctl)
     ```sh
     doctl auth init 
@@ -91,9 +92,9 @@
 
 1. Use `httpie` to verify your application works in the cluster 
     1. Find the IP address of your pod and copy one address to your clipboard
-    ```shell
-    kubectl get pods -n app-namespace -o wide
-    ```
+        ```shell
+        kubectl get pods -n app-namespace -o wide
+        ```
     1. Create a utilities pod
         ```shell
         kubectl apply -f kubernetes/manifests/utilities.yaml
@@ -120,6 +121,7 @@
         ```shell
         curl -SsL https://packages.httpie.io/deb/KEY.gpg | apt-key add - && curl -SsL -o /etc/apt/sources.list.d/httpie.list https://packages.httpie.io/deb/httpie.list && apt update && apt install httpie
         ```
+        The installation will take a minute or two. 
     1.  Test write 
         ```bash
         http POST <pod_ip_address>:8080/secrets message="YOUR_MESSAGE" passphrase="YOUR_PASSPHRASE"
@@ -200,7 +202,7 @@
     1. Go to the Kubernetes page in the control panel. From the cluster’s More menu, select Destroy and click Destroy. 
     1. In the Destroy Kubernetes cluster dialog box, select the resources, such as load balancers and block storage volumes, associated with the cluster to delete them automatically when the cluster is deleted. Enter the name of the cluster, then click Destroy to confirm.
 
-1. Congrats! You just deployed an application to Kubernetes and directed traffic to it from the internet! 🎉
+1. Celebrate! You just deployed an application to Kubernetes and directed traffic to it from the internet! 🎉
 
 
 
