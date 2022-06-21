@@ -15,7 +15,7 @@ The goal of this [session](https://sched.co/11Nje) is for you to deploy a contai
 1. Review and Conclusion
 
 ### Promo Code 
-In this workshop, you will spin up a [DigitalOcean Managed Kubernetes Cluster](https://www.digitalocean.com/products/kubernetes). You will get a $100 credit for this workshop, and in order to [redeem the credit](https://docs.digitalocean.com/products/billing/promo-codes/), you will need a DigitalOcean Account. 
+In this workshop, you will spin up a [DigitalOcean Managed Kubernetes Cluster](https://www.digitalocean.com/products/kubernetes). You will get a $100 credit for this workshop, and in order to [redeem the credit](https://docs.digitalocean.com/products/billing/promo-codes/), you will need a DigitalOcean Account. The promo code is `OpenSourceSummit22`.
 
 **Note:**  
 If you have an existing DigitalOcean account that has already used a promo code, we will have to manually add the credits to your account. There are three ways to handle this at the session: 
