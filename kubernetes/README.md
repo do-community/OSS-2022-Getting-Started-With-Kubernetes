@@ -66,15 +66,14 @@
 
 1. Use `httpie` to verify your application works in the cluster 
     1. Find the IP address of your pod and copy one address to your clipboard
+
     ```shell
     kubectl get pods -n app-namespace -o wide
     ```
-
     1. Create a utilities pod
         ```shell
         kubectl apply -f kubernetes/manifests/utilities.yaml
         ```
-
         1. Get the unique id of the pod and copy that to your clipboard.
         ```shell
         kubectl get pods -n app-namespace
@@ -167,7 +166,7 @@
         ```
 
 1. Add resource requests and limits
-    1. In the [Deployment manifest](./kubernetes/manifests/deployment.yaml), uncomment lines 25-31.
+    1. In the [Deployment manifest](./manifests/deployment.yaml), uncomment lines 25-31.
     1. Update the Deployment with 
     ```shell
     kubectl apply -f kubernetes/manifests/deployment.yaml
@@ -176,6 +175,8 @@
 1. [Destroy your cluster](https://docs.digitalocean.com/products/kubernetes/how-to/destroy-clusters/)
     1. Go to the Kubernetes page in the control panel. From the cluster’s More menu, select Destroy and click Destroy. 
     1. In the Destroy Kubernetes cluster dialog box, select the resources, such as load balancers and block storage volumes, associated with the cluster to delete them automatically when the cluster is deleted. Enter the name of the cluster, then click Destroy to confirm.
+
+1. Congrats! You just deployed an application to Kubernetes and directed traffic to it from the internet! 🎉
 
 
 
