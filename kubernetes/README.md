@@ -23,7 +23,7 @@
     export DO_TOKEN="<YOUR_DO_TOKEN>"
     ```
 
-    **Note:** Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
+        **Note:** Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
 
     1. [Use the API token to grant account access to doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/#step-3-use-the-api-token-to-grant-account-access-to-doctl)
     ```sh
@@ -91,7 +91,6 @@
 
 1. Use `httpie` to verify your application works in the cluster 
     1. Find the IP address of your pod and copy one address to your clipboard
-
     ```shell
     kubectl get pods -n app-namespace -o wide
     ```
