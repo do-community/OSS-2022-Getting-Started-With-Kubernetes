@@ -7,6 +7,7 @@
 - [httpie](https://httpie.io/docs/cli/installation)
 
 **Note**
+
 If the DigitalOcean paywall makes it difficult for you to complete this tutorial, we recommend you spin up a cluster using [Killercoda](https://killercoda.com/playgrounds/scenario/kubernetes). You will have to copy and paste the manifest files from this repo to Killercoda's IDE. 
 
 You will not be able to expose your application to the internet using Killercoda, but the rest of the tutorial is possible. 
@@ -27,7 +28,8 @@ You will not be able to expose your application to the internet using Killercoda
     ```sh
     export DO_TOKEN="<YOUR_DO_TOKEN>"
     ```
-    **Note:** Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
+    **Note**
+     Since Windows doesn't support enviornment variables, Windows users should keep the token on their clipboard to easily paste.
     1. [Use the API token to grant account access to doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/#step-3-use-the-api-token-to-grant-account-access-to-doctl)
     ```sh
     doctl auth init 
@@ -76,7 +78,7 @@ You will not be able to expose your application to the internet using Killercoda
     kube-public       Active   10m
     kube-system       Active   10m
     ```
-1. Create a Kubernetes Deployment that will ensure there 3 replicas of the One Time Secret application running at once.
+1. Create a Kubernetes Deployment that will ensure there are 3 replicas of the One Time Secret application running at once.
     ```shell
     kubectl apply -f kubernetes/manifests/deployment.yaml
     ```
@@ -117,7 +119,7 @@ You will not be able to expose your application to the internet using Killercoda
         ```
     1. Exec into that pod 
         ```shell
-        k exec -it <utilities_pod_name> -n app-namespace -- /bin/sh
+        kubectl exec -it <utilities_pod_name> -n app-namespace -- /bin/sh
         ```
     1. Install `httpie`
         ```shell

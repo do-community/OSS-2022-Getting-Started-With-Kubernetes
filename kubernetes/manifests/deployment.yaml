@@ -21,6 +21,15 @@ spec:
         image: mmegger/one-time-secret:2022-06-20
         ports:
         - containerPort: 80
+        env:
+        - name: DB_PASSWORD
+          value: "AVNS_KRHCUmr_Lg-lrYpq66k"
+        - name: DB_HOST
+          value: "oss2022-do-user-1742897-0.b.db.ondigitalocean.com" 
+        - name: DB_PORT
+          value: "25061"
+        - name: DB_SSL
+          value: "True"
         # Uncomment this block to add resource requests and limits
         # resources:
         #   requests:
