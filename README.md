@@ -45,7 +45,7 @@ If you get stuck during the workshop, please try the following things in order:
 1. If you are at the conference in-person, ask for help from someone sitting near you, or go to the back where a teaching assistant can help you. 
 
 ### Learn More
-If you enjoyed this workshop, please checkout some of DigitalOcean's other learning materials at our [Community Tutorials Site](https://www.digitalocean.com/community). 
+If you enjoyed this workshop, please checkout some of DigitalOcean's other learning materials at our [Community Site](https://www.digitalocean.com/community). 
 
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=0396fb078dbc&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
