@@ -21,7 +21,7 @@
     kubectl get nodes
     ```
 
-You should see output like this: 
+    You should see output like this: 
     ```shell
     NAME                   STATUS   ROLES    AGE     VERSION
     pool-vj14tarbi-csyw0   Ready    <none>   30s   v1.22.8
@@ -71,15 +71,17 @@ You should see output like this:
     ```
 
     1. Create a utilities pod
-    ```shell
-    kubectl apply -f kubernetes/manifests/utilities.yaml
-    ```
+        ```shell
+        kubectl apply -f kubernetes/manifests/utilities.yaml
+        ```
+
         1. Get the unique id of the pod and copy that to your clipboard.
         ```shell
         kubectl get pods -n app-namespace
         ```
         
         You will see something like this
+        
         ```shell
         NAME                              READY   STATUS    RESTARTS   AGE
         one-time-secret-5b757b96f-6nbm7   1/1     Running   0          10m
@@ -89,13 +91,13 @@ You should see output like this:
         ```
     1. Exec into that pod 
         ```shell
-        k exec -it <utilities_pod> -n app-namespace -- /bin/sh
+        k exec -it <utilities_pod_name> -n app-namespace -- /bin/sh
         ```
     1. Install `httpie`
         ```shell
         curl -SsL https://packages.httpie.io/deb/KEY.gpg | apt-key add - && curl -SsL -o /etc/apt/sources.list.d/httpie.list https://packages.httpie.io/deb/httpie.list && apt update && apt install httpie
         ```
-    1.  1. Test write 
+    1.  Test write 
         ```bash
         http POST <pod_ip_address>:8080/secrets message="YOUR_MESSAGE" passphrase="YOUR_PASSPHRASE"
         ```
@@ -121,7 +123,6 @@ You should see output like this:
         ```shell
         exit
         ```
-
 
 1. Deploy a service to expose your application replicas to the internet 
     ```shell
