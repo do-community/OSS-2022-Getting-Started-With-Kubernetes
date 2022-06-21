@@ -21,3 +21,11 @@ spec:
         image: mmegger/one-time-secret:2022-06-20
         ports:
         - containerPort: 80
+        # Uncomment this block to add resource requests and limits
+        # resources:
+        #   requests:
+        #     cpu: 30m
+        #     memory: 64Mi
+        #   limits:
+        #     cpu: 100m
+        #     memory: 128Mi

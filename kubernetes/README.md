@@ -7,8 +7,8 @@
 - [httpie](https://httpie.io/docs/cli/installation)
 
 ### Instructions
-1. Create a Kubernetes Cluster from the [DigitalOcean Control Panel](https://cloud.digitalocean.com/)
-    1. From the Create menu in the control panel, click Kubernetes.
+1. [Create a Kubernetes Cluster from the DigitalOcean Control Panel](https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/)
+    1. From the Create menu in the [control panel](https://cloud.digitalocean.com/), click Kubernetes.
     1. Select a Kubernetes version. The latest version is selected by default and is the best choice if you have no specific need for an earlier version.
     1. Choose a datacenter region.
     1. Customize the default node pool, choose the node pool names, and add additional node pools.
@@ -39,7 +39,7 @@
     kubectl get namespaces
     ```
 
-    You should see a list of namespaces, including the `app-namespace`, like this
+    You should see a list of namespaces, including the `app-namespace`, like this:
     ```shell
     NAME              STATUS   AGE
     app-namespace     Active   3s
@@ -56,7 +56,7 @@
     ```shell
     kubectl get pods -n app-namespace
     ```
-    You should see something like this
+    You should see something like this:
     ```shell
     NAME                              READY   STATUS    RESTARTS   AGE
     one-time-secret-5b757b96f-6nbm7   1/1     Running   0          12s
@@ -80,7 +80,7 @@
         kubectl get pods -n app-namespace
         ```
         
-        You will see something like this
+        You will see something like this:
         
         ```shell
         NAME                              READY   STATUS    RESTARTS   AGE
@@ -124,16 +124,58 @@
         exit
         ```
 
-1. Deploy a service to expose your application replicas to the internet 
+1. Deploy a service to create a Load Balancer that will direct traffic from the internet to your application replicas 
     ```shell
     kubectl apply -f kubernetes/manifests/service.yaml
     ```
-    
+    Find the external IP address of the Load Balancer
+    ```shell
+    kubectl get svc -A
+    ```
+    You will see something like this:
+    ```shell
+    NAMESPACE       NAME          TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                  AGE
+    app-namespace   ots-service   LoadBalancer   10.245.26.224   143.198.247.38   80:31965/TCP             60m
+    default         kubernetes    ClusterIP      10.245.0.1      <none>           443/TCP                  2d12h
+    kube-system     kube-dns      ClusterIP      10.245.0.10     <none>           53/UDP,53/TCP,9153/TCP   2d12h
+    ```
+    It takes a few minutes for Load Balancer to be created and be assigned an IP address. 
+
+
 1. Use `httpie` to verify your application works over the internet
+    1.  Test write 
+        ```bash
+        http POST <load_balancer_ip_address>/secrets message="YOUR_MESSAGE" passphrase="YOUR_PASSPHRASE"
+        ```
+        1. Sample Response
+        ```json
+        {
+           "id": "ea54d2701885400cafd0c11279672c8f",
+           "success": "True"
+        }
+        ```
+    1. Test read, using the id from above
+        ```bash
+        http POST <load_balancer_ip_address/secrets/<id> passphrase="YOUR_PASSPHRASE"
+        ```
+        1. Sample Response
+        ```json
+        {
+            "message": "Hello there",
+            "success": "True"
+        }
+        ```
 
 1. Add resource requests and limits
+    1. In the [Deployment manifest](./kubernetes/manifests/deployment.yaml), uncomment lines 25-31.
+    1. Update the Deployment with 
+    ```shell
+    kubectl apply -f kubernetes/manifests/deployment.yaml
+    ```
 
-1. Tear down your cluster
+1. [Destroy your cluster](https://docs.digitalocean.com/products/kubernetes/how-to/destroy-clusters/)
+    1. Go to the Kubernetes page in the control panel. From the cluster’s More menu, select Destroy and click Destroy. 
+    1. In the Destroy Kubernetes cluster dialog box, select the resources, such as load balancers and block storage volumes, associated with the cluster to delete them automatically when the cluster is deleted. Enter the name of the cluster, then click Destroy to confirm.
 
 
 
